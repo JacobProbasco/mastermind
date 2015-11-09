@@ -11,7 +11,7 @@
 
 #include <sys/types.h>
 
-int get_guess(double *const number, const int numbers, FILE *const in);
+int get_guess(char *inpt, int *gues_int);
 
 int main(void){
     
@@ -23,32 +23,11 @@ int main(void){
     
     int red, r, white, w;
         red = r = white = w = 0;
-    // FUNC: Get input from user (or NPC), for user, convert to int to list
-    for(;;) {
-        char inpt[6];
-        printf("Guess a number:");
-        fgets(inpt, sizeof(inpt), stdin);
-        
-        if(inpt[4] != '\n'){
-            printf("Your guess did not consist of four whole-numbers. Try again.\n");
-            while(!strchr(inpt, '\n')){
-                fgets(inpt, sizeof(inpt), stdin);
-            }
-        } else {
-            inpt[4] = '\0';
-        }
-        for (int i = 0; inpt > 0 && i < 4; i++) {
-            if (inpt[i] >= '0' && inpt[i] <= '9') {
-                    g[i] = inpt[i] - '0';
-                }
-            else {
-                    printf("Your guess did not consist of four whole-numbers. Try again.\n");
-                }
-
-        }
-        printf("Your guess was: %d%d%d%d\n", gues[0], gues[1], gues[2], gues[3]);
-        break;
-    }
+    
+    // Get input from user (or NPC), for user, convert to int to list
+    
+    get_guess(input, gues);
+    
     // Generate 4 random numbers and store as c
     
     
@@ -104,6 +83,32 @@ int main(void){
     
 }
 
+int get_guess(char *inpt, int *gues_int){
+    char input[6];
+    printf("Guess a number:");
+    fgets(input, sizeof(input), stdin);
+    
+    for(;;) {
+
+        if(inpt[4] != '\n'){
+            printf("Your guess did not consist of four whole-numbers. Try again.\n");
+            while(!strchr(inpt, '\n')){
+                fgets(inpt, sizeof(inpt), stdin);
+            }
+        } else {
+            inpt[4] = '\0';
+        }
+        for (int i = 0; inpt > 0 && i < 4; i++) {
+            if (inpt[i] >= '0' && inpt[i] <= '9') {
+                gues_int[i] = inpt[i] - '0';
+            }
+            else {
+                printf("Your guess did not consist of four whole-numbers. Try again.\n");
+            }
+            
+        }
+    }
+}
 //int get_guess(int *const number, const int numbers, FILE *const in){
 //    int n = 0;
 //        /* Read numbers from in, until no more room in array. */
