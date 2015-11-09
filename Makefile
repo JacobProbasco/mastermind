@@ -9,4 +9,4 @@ debug: mastermind
 
 
 clean:
-	-rm poker *.o
+	-rm mastermind *.o
