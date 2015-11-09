@@ -2,10 +2,10 @@ CFLAGS+=-std=c11 -Wall -Werror -Wno-deprecated -Wextra -Wstack-usage=1024 -pedan
 
 .PHONY: clean debug
 
-poker: poker.o card.o deck.o
+mastermind:main.c 
 
 debug: CFLAGS+=-g
-debug: poker
+debug: mastermind
 
 
 clean:
