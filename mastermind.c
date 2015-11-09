@@ -28,7 +28,7 @@ int main(void){
         c[i] = rand()%sizeof(c[i]);
     }
     
-    printf("Secret Code is: %d%d%d%d\n", c[0], c[1], c[2], c[3]);
+//    printf("Secret Code is: %d%d%d%d\n", c[0], c[1], c[2], c[3]);
     
     // Compare each digit to all values in the c list
     
