@@ -1,8 +1,8 @@
-CFLAGS+=-std=c11 -Wall -Werror -Wno-deprecated -Wextra -Wstack-usage=1024 -pedantic
+CFLAGS=-std=c11 -Wall -Wextra -pedantic -Werror
 
 .PHONY: clean debug
 
-mastermind:main.c 
+mastermind:mastermind.c
 
 debug: CFLAGS+=-g
 debug: mastermind
